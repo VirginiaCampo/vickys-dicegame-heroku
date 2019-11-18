@@ -1,0 +1,35 @@
+header
+{
+     width: 100%;
+     margin-top: 2.5rem;
+}
+#manage-player--menu
+{
+     text-align: right;
+     z-index: 998;
+     border-color: blue;
+     border-width: 2px;
+}
+#manage-player--menu ul
+{
+     margin-bottom: 0px;
+     list-style-type: none;
+     width: calc(50vw - ((100vw - 100%)/2))
+     text-align: right;
+     padding-right: 2rem;
+     padding-top: 1rem;
+}
+
+#manage-player--menu ul li
+{
+     color: #eff7fd;
+     font-size: 1.25rem;
+     display: inline-block;
+     margin-left: .5rem;
+     margin-right: .5rem;
+     cursor: pointer;
+}
+#manage-player--menu ul li:hover
+{
+     color: #D16A24;
+}

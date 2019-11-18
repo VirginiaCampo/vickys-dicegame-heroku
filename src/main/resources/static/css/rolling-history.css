@@ -1,0 +1,119 @@
+/* Refresh History */
+#refreshHistory
+{
+
+}
+/* All Plays */
+.dice-roll__allPlays
+{
+     /* grid */
+     grid-column-start: 1;
+     grid-column-end:3;
+     grid-row-start: 4;
+     grid-row-end: 5;
+     text-align: center;
+
+}
+.dice-roll__stats
+{
+     /* grid */
+     grid-column-start: 3;
+     grid-column-end:5;
+     grid-row-start: 4;
+     grid-row-end: 5;
+}
+
+.dice-roll__allPlays--title, .dice-roll__stats--title
+{
+     color: #13232f;
+     font-size: 1.5rem;
+     line-height: 3rem;
+     vertical-align: middle;
+     font-weight: bolder;
+     cursor: pointer;
+     /* Movemnt */
+     transition-property: position;
+     transition-duration: .5s;
+}
+#refreshHistory, #deleteHistory, #refreshStats, #biggestWinnerRefresh, #biggestLoserRefresh
+{
+     padding-left: 5px;
+}
+#refreshHistory:hover, #deleteHistory:hover, #refreshStats:hover, #biggestWinnerRefresh:hover, #biggestLoserRefresh:hover
+{
+     text-shadow: 1px 1px #26465f;
+     color: #CB6120;
+     /* position */
+     transform: translateY(-2px);
+
+
+}
+#refreshHistory:active, #deleteHistory:active ,#refreshStats:active, #biggestWinnerRefresh:active, #biggestLoserRefresh:active
+{
+     text-shadow: none;
+     /* position */
+     transform: translateY(0px);
+     color: #80bff2;
+}
+
+.dice-roll__allPlays--list, .dice-roll__stats--list
+{
+     width: 90%;
+     background-color: #4d8cbf;
+     height: 80%;
+     display: inline-block;
+     border-radius: 5px;
+
+     -moz-box-shadow:    inset 0 0 1px #13232f;
+     -webkit-box-shadow: inset 0 0 1px #13232f;
+     box-shadow:         inset 0 0 1px #13232f;
+
+     padding: .75rem;
+     overflow-y: auto;
+}
+/* Player Game Table */
+#playerGameTable, #gameStatsTable, #gameStatsTable__titleRow
+{
+     width: 100%;
+}
+#playerGameTable__titleRow, #gameStatsTable__titleRow
+{
+     background-color: #26465f;
+     color: #80bff2;
+}
+/* Titles Rows */
+.playerGameTable__titleRo--rollNumber
+{
+     width: 20%;
+
+}
+.playerGameTable__titleRow--dices
+{
+     width: 60%;
+}
+.playerGameTable__titleRow--result
+{
+     width: 20%;
+}
+.gameStatsTable__titleRow--posNumber,  .gameStatsTable__titleRow--win, .gameStatsTable__titleRow--lose
+{
+     width: 20%;
+}
+.gameStatsTable__titleRow--Name
+{
+     width: 40%;
+}
+/* Rows */
+#playerGameTable tr:nth-child( even ), #gameStatsTable tr:nth-child( even )
+{
+  background-color: #3a698f;
+  color: #fff;
+}
+#playerGameTable tr:nth-child( odd ):not(:first-child), #gameStatsTable tr:nth-child( odd ):not(:first-child)
+{
+  color: #fff;
+}
+#gameStatsTable tr.mePlayer:nth-child( even ), #gameStatsTable tr.mePlayer:nth-child( odd )
+{
+     background: #CB6120 !important;
+}

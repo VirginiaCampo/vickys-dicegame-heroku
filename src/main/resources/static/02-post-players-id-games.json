@@ -1,0 +1,54 @@
+{
+    "Player": {
+        "date": "2019-10-25",
+        "name": "Jorge",
+        "playerId": "47c275c0-b307-4e83-8297-99981034b9fa"
+    },
+    "Dices": [
+        {
+            "dicenumber": "0",
+            "roll": "6",
+            "id": "33",
+            "rollid": "18"
+        },
+        {
+            "dicenumber": "1",
+            "roll": "6",
+            "id": "34",
+            "rollid": "18"
+        },
+        {
+            "dicenumber": "2",
+            "roll": "3",
+            "id": "35",
+            "rollid": "18"
+        },
+        {
+            "dicenumber": "3",
+            "roll": "5",
+            "id": "36",
+            "rollid": "18"
+        },
+        {
+            "dicenumber": "4",
+            "roll": "2",
+            "id": "37",
+            "rollid": "18"
+        },
+        {
+            "dicenumber": "5",
+            "roll": "6",
+            "id": "38",
+            "rollid": "18"
+        }
+    ],
+    "Message": {
+        "Type": "SUCCESS",
+        "Message": "Successful roll ."
+    },
+    "Roll": {
+        "result": "LOST",
+        "id": "18",
+        "playerId": "47c275c0-b307-4e83-8297-99981034b9fa"
+    }
+}

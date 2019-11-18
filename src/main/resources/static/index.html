@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Burning Dice</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Local Styles -->
+<link rel="stylesheet" type="text/css" href="css/biggest.css">
+<link rel="stylesheet" type="text/css" href="css/body.css">
+<link rel="stylesheet" type="text/css" href="css/custom-scrollBar.css">
+<link rel="stylesheet" type="text/css" href="css/dice-roll.css">
+<link rel="stylesheet" type="text/css" href="css/generic.css">
+<link rel="stylesheet" type="text/css" href="css/header.css">
+<link rel="stylesheet" type="text/css" href="css/hgroup.css">
+<link rel="stylesheet" type="text/css" href="css/player-form.css">
+<link rel="stylesheet" type="text/css" href="css/player-ranking.css">
+<link rel="stylesheet" type="text/css" href="css/rolling-history.css">
+<link rel="stylesheet" type="text/css" href="css/shadows.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<!-- Local JavaScript -->
+<script src="js/biggest.js"></script>
+<script src="js/common.js"></script>
+<script src="js/dice-roll.js"></script>
+<script src="js/game-stats.js"></script>
+<script src="js/myAjax.js"></script>
+<script src="js/player-games.js"></script>
+<script src="js/user.js"></script>
+<!-- Bootstrap Files -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- MyScripts -->
+<script>
+     var userName = "";
+     var userId = "";
+     var ajaxRequest;
+     var jsonObj;
+     var activeSection;
+
+     function enqueueScripts()
+     {
+
+          //Get Stored values
+          doSessionStorage();
+          swapRegisterItem();
+          addEventsUser();
+          showHideButons();
+          if (userId != "")
+          {
+               doYouWantToRolldice();
+          }
+
+     }
+</script>
+</head>
+<body onload="enqueueScripts()">
+     <div class="body clearfix">
+          <!-- The loggin menu -->
+          <header>
+               <nav id="manage-player--menu">
+                  <ul>
+                      <li id="manage-player--menu__newPlayer">Register</li>
+                      <!-- Create Player -->
+                      <!-- Modify Player -->
+                      <li id="manage-player--menu__deletePlayer">Exit</li>
+                      <!-- Delete Player -->
+                  </ul>
+               </nav>
+               <!-- The Loggin form -->
+               <aside id="manage-player__form--container" class="hide">
+                  <form id="manage-player__form">
+                      <ul>
+                          <li><input type="text" id="playerName" name="playerName" placeholder="Player Name" ></li>
+                          <li class="playerButtonsLI"><button id="modifyPlayer" type="button">Modify Player</button>
+                              <button id="createPlayer" type="button">Create Player</button>
+                              <span id="userErrorMessage">&nbsp;</span>
+                          </li>
+                      </ul>
+                  </form>
+               </aside>
+          </header>
+          <!-- Company information -->
+
+          <hgroup>
+               <div class="burning-dice-logo"><img src="img/orange-logo.svg"></img></div>
+               <div class="titles">
+                    <h1>Burning Dice</h1>
+                   <h2>The Game</h2>
+               </div>
+          </hgroup>
+
+          <!-- Content of the page-->
+          <section id="dice-roll" class="dice-roll hide">
+
+               <aside class="dice-roll__aside--logo grid-getItem">
+                    <div class="dice-roll__aside--logo-img">
+                         <img src="img/orange-logo.svg"></img>
+                    </div>
+                    <div class="titles">
+                         <h3>Burning Dice</h3>
+                        <h4>The Game</h4>
+                    </div>
+               </aside>
+               <aside class="dice-roll__aside--bw grid-getItem">
+                    <!-- Biggest Winner -->
+                    <div id="biggestWinnerRefresh">
+                         <i id="biggestWinnerRefreshIcon" class="fa fa-refresh"></i>
+                    </div>
+                    <div class="dice-roll__aside--bw-title">
+                         <p>The Biggest Winner is:</p>
+                         <p id="biggestWinnerName"></p>
+                    </div>
+               </aside>
+               <aside class="dice-roll__aside--bl grid-getItem">
+                    <!-- Biggest Looser -->
+                    <div id="biggestLoserRefresh">
+                         <i id="biggestLoserRefreshIcon" class="fa fa-refresh"></i>
+                    </div>
+                    <div class="dice-roll__aside--bl-title">
+                         <p>The Biggest Loser is:</p>
+                         <p id="biggestLoserName"></p>
+                    </div>
+               </aside>
+               <article class="dice-roll__rollDices grid-getItem">
+                    <div class="dice-roll__rollDices--diceContainer">
+                         <div class="dice-roll__rollDices--dices">
+                              <img class="dice-roll__rollDices--dices--img" id="dice-01" src="img/1.svg" alt="Dice number 1">
+                         </div>
+                         <div class="dice-roll__rollDices--dices">
+                              <img class="dice-roll__rollDices--dices--img" id="dice-02" src="img/2.svg" alt="Dice number 1">
+                         </div>
+                         <div class="dice-roll__rollDices--dices">
+                              <img class="dice-roll__rollDices--dices--img" id="dice-03" src="img/3.svg" alt="Dice number 1">
+                         </div>
+                         <div class="dice-roll__rollDices--dices">
+                              <img class="dice-roll__rollDices--dices--img" id="dice-04" src="img/4.svg" alt="Dice number 1">
+                         </div>
+                         <div class="dice-roll__rollDices--dices">
+                              <img class="dice-roll__rollDices--dices--img" id="dice-05" src="img/5.svg" alt="Dice number 1">
+                         </div>
+                         <div class="dice-roll__rollDices--dices">
+                              <img class="dice-roll__rollDices--dices--img" id="dice-06" src="img/6.svg" alt="Dice number 1">
+                         </div>
+                         <div class="dice-roll__rollDices--btnDiv">
+                              <span id="diceRollingBTN" class="dice-roll__rollDices--btn">Let's roll the dice!</span>
+                         </div>
+                    </div>
+
+               </article>
+               <article class="dice-roll__allPlays grid-getItem">
+                    <div>
+                         <span class="dice-roll__allPlays--title">
+                              Rolling History
+                              <i id="refreshHistory" class="fa fa-refresh"></i>
+                              <i id="deleteHistory" class="fa fa-trash" aria-hidden="true"></i>
+                         </span>
+                    </div>
+                    <div class="dice-roll__allPlays--list cute_scroll">
+                         <table id="playerGameTable">
+                              <tr id="playerGameTable__titleRow">
+                                   <th class="playerGameTable__titleRo--rollNumber">
+                                        #
+                                   </th>
+                                   <th colspan="6" class="playerGameTable__titleRow--dices">
+                                        Dices Rolled
+                                   </th>
+                                   <th class="playerGameTable__titleRow--result">
+                                        Result
+                                   </th>
+                              </tr>
+                         </table>
+                    </div>
+
+               </article>
+               <article class="dice-roll__stats grid-getItem">
+                    <div>
+                         <span class="dice-roll__stats--title">
+                              Game Statistics
+                              <i id="refreshStats" class="fa fa-refresh"></i>
+                         </span>
+                    </div>
+                    <div class="dice-roll__stats--list cute_scroll">
+                         <table id="gameStatsTable">
+                              <tr id="gameStatsTable__titleRow">
+                                   <th class="gameStatsTable__titleRow--posNumber">
+                                        #
+                                   </th>
+                                   <th class="gameStatsTable__titleRow--Name">
+                                        Name
+                                   </th>
+                                   <th class="gameStatsTable__titleRow--win">
+                                        Wins
+                                   </th>
+                                   <th class="gameStatsTable__titleRow--lose">
+                                        Loses
+                                   </th>
+                                   <th class="gameStatsTable__titleRow--win">
+                                        Wins Percentage
+                                   </th>
+                                   <th class="gameStatsTable__titleRow--lose">
+                                        Losts Percentage
+                                   </th>
+                              </tr>
+                         </table>
+                    </div>
+               </article>
+
+               <footer>
+
+               </footer>
+          </section>
+
+
+          <!-- Footer -->
+          <footer>
+
+          </footer>
+     </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+.body
+{
+     /* flex */
+     display: flex;
+     flex-direction: row;
+     flex-wrap: wrap;
+     justify-content: center;  /* Horizontal */
+     align-items: flex-start; /* Vertical */
+     align-content: space-evenly; /*Horizontal the content*/
+
+     /* style */
+     border-radius: 5px;
+     background-color: #26465f !important;
+
+     /* size */
+     max-width: 800px;
+     max-height: 95%;
+     width: 90%;
+     height: 95%;
+
+     /* placing */
+     margin: auto;
+     margin-top: 2%;
+     overflow: hidden;
+}

@@ -1,0 +1,84 @@
+{
+    "Rolls": [
+        {
+            "result": "LOST",
+            "id": "13",
+            "playerId": "55a55fbc-2d54-4e2e-9fc2-4094abc93239"
+        },
+        {
+            "result": "LOST",
+            "id": "14",
+            "playerId": "55a55fbc-2d54-4e2e-9fc2-4094abc93239"
+        },
+        {
+            "result": "WIN",
+            "id": "15",
+            "playerId": "55a55fbc-2d54-4e2e-9fc2-4094abc93239"
+        },
+        {
+            "result": "WIN",
+            "id": "16",
+            "playerId": "55a55fbc-2d54-4e2e-9fc2-4094abc93239"
+        },
+        {
+            "result": "LOST",
+            "id": "17",
+            "playerId": "55a55fbc-2d54-4e2e-9fc2-4094abc93239"
+        }
+    ],
+    "Player": {
+        "date": "2017-01-25",
+        "name": "Anonimo",
+        "playerId": "55a55fbc-2d54-4e2e-9fc2-4094abc93239"
+    },
+    "Dices": [
+        {
+            "dicenumber": "0",
+            "roll": "2",
+            "id": "25",
+            "rollid": "13"
+        },
+        {
+            "dicenumber": "1",
+            "roll": "6",
+            "id": "26",
+            "rollid": "13"
+        },
+        {
+            "dicenumber": "0",
+            "roll": "3",
+            "id": "27",
+            "rollid": "14"
+        },
+        {
+            "dicenumber": "1",
+            "roll": "1",
+            "id": "28",
+            "rollid": "14"
+        },
+        {
+            "dicenumber": "0",
+            "roll": "4",
+            "id": "29",
+            "rollid": "15"
+        },
+        {
+            "dicenumber": "1",
+            "roll": "3",
+            "id": "30",
+            "rollid": "15"
+        },
+        {
+            "dicenumber": "0",
+            "roll": "5",
+            "id": "31",
+            "rollid": "16"
+        },
+        {
+            "dicenumber": "1",
+            "roll": "2",
+            "id": "32",
+            "rollid": "16"
+        }
+    ]
+}

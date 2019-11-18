@@ -1,0 +1,90 @@
+{
+    "Players": [
+        {
+            "date": "2019-09-21",
+            "name": "Patricia",
+            "playerId": "108bf6f4-dad5-4dbb-bbf8-d46f01456782"
+        },
+        {
+            "date": "2019-10-25",
+            "name": "Jorge",
+            "playerId": "47c275c0-b307-4e83-8297-99981034b9fa"
+        },
+        {
+            "date": "2019-11-10",
+            "name": "Anonymous",
+            "playerId": "5231d060-bc6c-4af3-abd3-706a352b8be8"
+        },
+        {
+            "date": "2017-01-25",
+            "name": "Anonimo",
+            "playerId": "55a55fbc-2d54-4e2e-9fc2-4094abc93239"
+        },
+        {
+            "date": "2019-12-01",
+            "name": "Rodrigo",
+            "playerId": "9d1ccd50-0386-40f5-bd87-14caf502865b"
+        },
+        {
+            "date": "2019-11-01",
+            "name": "Mario",
+            "playerId": "a48ffb69-5784-47ca-8a0c-4d27bf7e37fc"
+        },
+        {
+            "date": "2019-08-10",
+            "name": "Ana",
+            "playerId": "d574984a-9663-4477-89b8-894889546afa"
+        }
+    ],
+    "WinsPercentage": [
+        {
+            "PlayerId": "108bf6f4-dad5-4dbb-bbf8-d46f01456782",
+            "LostPercentage": "100.0",
+            "Loses": "3.0",
+            "Wins": "null",
+            "WinsPercentage": "0.0"
+        },
+        {
+            "PlayerId": "47c275c0-b307-4e83-8297-99981034b9fa",
+            "LostPercentage": "100.0",
+            "Loses": "10.0",
+            "Wins": "null",
+            "WinsPercentage": "0.0"
+        },
+        {
+            "PlayerId": "5231d060-bc6c-4af3-abd3-706a352b8be8",
+            "LostPercentage": "0",
+            "Loses": "0",
+            "Wins": "0",
+            "WinsPercentage": "0"
+        },
+        {
+            "PlayerId": "55a55fbc-2d54-4e2e-9fc2-4094abc93239",
+            "LostPercentage": "60.0",
+            "Loses": "3.0",
+            "Wins": "2.0",
+            "WinsPercentage": "40.0"
+        },
+        {
+            "PlayerId": "9d1ccd50-0386-40f5-bd87-14caf502865b",
+            "LostPercentage": "0",
+            "Loses": "0",
+            "Wins": "0",
+            "WinsPercentage": "0"
+        },
+        {
+            "PlayerId": "a48ffb69-5784-47ca-8a0c-4d27bf7e37fc",
+            "LostPercentage": "0",
+            "Loses": "0",
+            "Wins": "0",
+            "WinsPercentage": "0"
+        },
+        {
+            "PlayerId": "d574984a-9663-4477-89b8-894889546afa",
+            "LostPercentage": "0",
+            "Loses": "0",
+            "Wins": "0",
+            "WinsPercentage": "0"
+        }
+    ]
+}

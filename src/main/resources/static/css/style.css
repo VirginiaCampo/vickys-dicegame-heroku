@@ -1,0 +1,50 @@
+/* clear margin and padding */
+/* https://www.colorhexa.com/121212
+/*
+
+     Grey Scale:
+      - #09080A - #13232f
+      - #2A2A28 - #26465f
+      - #414142 - #3a698f
+      - #595C60 - #4d8cbf
+      - #777C83 - #61afef
+      - #9AA5B1 - #80bff2
+      - #C2D4E4 - #eff7fd
+
+
+     orange: #CB6120
+     green: #4BAD9F - #56b6c2
+
+
+*/
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+html,body
+{
+     font-size: 10px;
+     background-color: #13232f !important;
+     font-size: 10px;
+     width: calc(100vw - ((100vw - 100%)/2) );
+     height: calc(100vh - ((100vh - 100%)/2) );
+     overflow: hidden;
+}
+body::-webkit-scrollbar
+{
+    display: none;
+    overflow: hidden;
+}
+ul, #ul, .ul
+{
+  margin-bottom: 0px;
+  list-style-type: none !important;
+}
+clearfix::after
+{
+  display: block;
+  content: "";
+  clear: both;
+}

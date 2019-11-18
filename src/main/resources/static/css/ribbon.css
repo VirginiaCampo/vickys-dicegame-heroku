@@ -1,0 +1,42 @@
+#ribbon {
+     background-color: #47c7f0;
+     width: 335px;
+     padding: 10px;
+     position: relative;
+     margin-top: -88px;
+     margin-left: auto;
+     margin-right: auto;
+     font-family: 'Shadows Into Light Two', cursive;
+     font-size: 20px;
+     letter-spacing: 2px;
+     color: #ffffff;
+     text-align: center;
+     box-shadow: 0 2px 6px #999999;
+}
+
+/*Ribbon Ends*/
+#ribbon:before,
+#ribbon:after {
+     content: "";
+     width: 3px;
+     bottom: 18px;
+     position: absolute;
+     display: block;
+     border: 25px solid #47c7f0;
+     box-shadow: 0 8px 6px -6px #999999;
+     z-index: -2;
+}
+
+/*Left Ribbon End*/
+#ribbon:before {
+     left: -42px;
+     border-right-width: 35px;
+     border-left-color: transparent;
+}
+
+/*Right Ribbon End*/
+#ribbon:after {
+     right: -42px;
+     border-left-width: 35px;
+     border-right-color: transparent;
+}

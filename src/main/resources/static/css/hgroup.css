@@ -1,0 +1,44 @@
+hgroup
+{
+     width: 100%;
+     height: 100%;
+     text-align: center;
+}
+hgroup.hide
+{
+     display: none;
+}
+.burning-dice-logo
+{
+     display: inline-block;
+     padding-top: 2.5rem;
+     padding-bottom: 2.5rem;
+     vertical-align: text-bottom;
+
+     text-align: center;
+     height: 80%;
+}
+.burning-dice-logo img
+{
+  height: 100%;
+  width: auto;
+  vertical-align: text-bottom;
+
+}
+hgroup .titles
+{
+  height: 20%;
+}
+hgroup h1, h2
+{
+  color: #eff7fd;
+  text-shadow: 1px 1px #121212;
+}
+hgroup h1
+{
+  font-size: 5vh;
+}
+hgroup h2
+{
+  font-size: 2.5vh;
+}
