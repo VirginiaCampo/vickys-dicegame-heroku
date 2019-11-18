@@ -8,9 +8,9 @@ public class JdbcDataSource
 {
 
     private static final String driverClassName = "com.mysql.cj.jdbc.Driver";
-    private static final String url = "jdbc:mysql://localhost:3306/db_dicegame?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-    private static final String dbUsername = "root";
-    private static final String dbPassword = "root";
+    private static final String url = "jdbc:mysql://67.20.76.208:3306/db_dicegame?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    private static final String dbUsername = "paulacam_TVBZrny";
+    private static final String dbPassword = "y3N=i*BDw1yJ~7S";
     private static JdbcTemplate template;
 
     private DataSource dataSource;
