@@ -13,7 +13,7 @@ public class GameApplication
     {
 
     	SpringApplication.run(GameApplication.class, args);
-		VirtualPlayersController.cratePlayers( 10 );
+		//VirtualPlayersController.cratePlayers( 10 );
 	}
 
 
