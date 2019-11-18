@@ -15,6 +15,7 @@ function createUser()
      if ( userName != "")
      {
           var localURL = window.location.href;
+	  console.log ( localURL  );
           var method = "POST";
           var url = "/players";
           var body = JSON.stringify({"name": userName});
