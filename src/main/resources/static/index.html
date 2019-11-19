@@ -71,7 +71,7 @@
                </nav>
                <!-- The Loggin form -->
                <aside id="manage-player__form--container" class="hide">
-                  <form id="manage-player__form">
+                  <form id="manage-player__form" onsubmit="event.preventDefault();">
                       <ul>
                           <li><input type="text" id="playerName" name="playerName" placeholder="Player Name" ></li>
                           <li class="playerButtonsLI"><button id="modifyPlayer" type="button">Modify Player</button>
