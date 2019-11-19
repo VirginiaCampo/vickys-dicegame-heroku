@@ -63,7 +63,17 @@ function configureRequesObj ( method , url , body , triggerFunction)
                 - true: a completed transaction is provided using event listeners
      */
      // Here processRequest() is the callback function.
-     url = "" + url;
+     var localURL = window.location.href;
+     console.log (localURL);
+     if ( localURL.indexOf ("localhost/static") > 0 )
+     {
+          url = "http://localhost:8080" + url;
+     }
+     else
+     {
+          url = "" + url;
+     }
+     console.log (url);
 
      ajaxRequest.onreadystatechange = function ()
      {

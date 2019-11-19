@@ -17,15 +17,33 @@
           opacity: 0 !important;
 
      }
-     .dice-roll.show
+     @media only screen and (min-device-width: 575px)
      {
-          opacity: 1 !important;
-          display: grid;
-          grid-template-columns: 25% 25% 25% auto;
-          grid-template-rows: 25% 20% 20% 25% auto;
-          grid-column-gap: 1rem;
-          grid-row-gap: 1rem;
+          .dice-roll.show
+          {
+               opacity: 1 !important;
+               display: grid;
+               grid-template-columns: 25% 25% 25% auto;
+               grid-template-rows: 25% 25% 20% 10% auto;
+               grid-column-gap: 1rem;
+               grid-row-gap: 1rem;
+               max-height: 95%;
+          }
      }
+     @media only screen and (max-device-width: 574px)
+     {
+          .dice-roll.show
+          {
+               opacity: 1 !important;
+               display: grid;
+               grid-template-columns: 25% 25% 25% auto;
+               grid-template-rows: 25% 15% 15% 20% 20%;
+               grid-column-gap: 1rem;
+               grid-row-gap: 1rem;
+               max-height: 95%;
+          }
+     }
+
 /* Grid items */
      .grid-getItem
      {
@@ -71,6 +89,7 @@
      {
           padding-bottom: 10px;
      }
+
 /* Styling the aside */
      .dice-roll__aside--logo, .dice-roll__aside--bw, .dice-roll__aside--bl
      {
@@ -81,22 +100,55 @@
      }
      .dice-roll__aside--bw-title, .dice-roll__aside--bl-title
      {
-          height: 80%;
-          background-repeat: no-repeat;
-          background-size: 50% auto;
-          background-position: center center;
-          background-color: #4d8cbf;
-          border-radius: 05px;
-          margin: 15px;
-          margin-top: 0px;
 
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
+     }
 
-          -moz-box-shadow: inset 0 0 2px #13232f;
-          -webkit-box-shadow: inset 0 0 2px #13232f;
-          box-shadow: inset 0 0 2px #13232f;
+     @media only screen and (min-device-width: 500px)
+     {
+          .dice-roll__aside--bw-title, .dice-roll__aside--bl-title
+          {
+               height: 80%;
+               background-repeat: no-repeat;
+               background-size: 50% auto;
+               background-position: center center;
+               background-color: #4d8cbf;
+               border-radius: 05px;
+               margin: 15px;
+               margin-top: 0px;
+
+               display: flex;
+               flex-direction: column;
+               justify-content: center;
+
+               -moz-box-shadow: inset 0 0 2px #13232f;
+               -webkit-box-shadow: inset 0 0 2px #13232f;
+               box-shadow: inset 0 0 2px #13232f;
+          }
+
+     }
+
+     @media only screen and (max-device-width: 499px)
+     {
+          .dice-roll__aside--bw-title, .dice-roll__aside--bl-title
+          {
+               height: 80%;
+               background-repeat: no-repeat;
+               background-size: 50% auto;
+               background-position: center center;
+               background-color: #4d8cbf;
+               border-radius: 05px;
+               margin-left: 5px;
+               margin-right: 5px;
+               margin-top: 0px;
+
+               display: flex;
+               flex-direction: column;
+               justify-content: center;
+
+               -moz-box-shadow: inset 0 0 2px #13232f;
+               -webkit-box-shadow: inset 0 0 2px #13232f;
+               box-shadow: inset 0 0 2px #13232f;
+          }
      }
 
      .dice-roll__aside--bw-title
@@ -158,14 +210,34 @@
           height: 75%;
           width: auto;
      }
-     .dice-roll__aside--logo h3,
+     .dice-roll__aside--logo .titles
      {
-          font-size: 1.8rem;
+          height: 25%;
      }
-     .dice-roll__aside--logo h4
+     @media only screen and (min-device-width: 411px)
      {
-          font-size: 1rem;
+          .dice-roll__aside--logo .titles .h3
+          {
+               font-size: 1.50rem !important;
+          }
+          .dice-roll__aside--logo .titles .h4
+          {
+               font-size: 1rem;
+          }
      }
+
+     @media only screen and (max-device-width: 410px)
+     {
+          .dice-roll__aside--logo .titles .h3
+          {
+               font-size: 1.12rem !important;
+          }
+          .dice-roll__aside--logo .titles .h4
+          {
+               font-size: .75rem;
+          }
+     }
+
 
 
 
@@ -181,9 +253,25 @@
      grid-row-start: 1;
      grid-row-end: 4;
 
+     width: min-content;
+
+
+}
+.dice-roll__rollDices
+{
+     /* Grid Layout */
+     grid-column-start: 2;
+     grid-column-end: 5;
+
+     grid-row-start: 1;
+     grid-row-end: 4;
+     width: 100%;
 
 }
 /* Dices */
+
+
+
 .dice-roll__rollDices--diceContainer
 {
      height: 100%;

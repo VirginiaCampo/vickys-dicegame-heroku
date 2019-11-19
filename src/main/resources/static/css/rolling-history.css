@@ -4,37 +4,80 @@
 
 }
 /* All Plays */
-.dice-roll__allPlays
-{
-     /* grid */
-     grid-column-start: 1;
-     grid-column-end:3;
-     grid-row-start: 4;
-     grid-row-end: 5;
-     text-align: center;
 
-}
-.dice-roll__stats
+@media only screen and (min-device-width: 575px)
 {
-     /* grid */
-     grid-column-start: 3;
-     grid-column-end:5;
-     grid-row-start: 4;
-     grid-row-end: 5;
+     .dice-roll__allPlays
+     {
+          /* grid */
+          grid-column-start: 1;
+          grid-column-end:3;
+          grid-row-start: 4;
+          grid-row-end: 6;
+          text-align: center;
+
+     }
+     .dice-roll__stats
+     {
+          /* grid */
+          grid-column-start: 3;
+          grid-column-end:5;
+          grid-row-start: 4;
+          grid-row-end: 6;
+     }
+}
+@media only screen and (max-device-width: 574px)
+{
+     .dice-roll__allPlays
+     {
+          /* grid */
+          grid-column-start: 1;
+          grid-column-end:5;
+          grid-row-start: 4;
+          grid-row-end: 5;
+          text-align: center;
+
+     }
+     .dice-roll__stats
+     {
+          /* grid */
+          grid-column-start: 1;
+          grid-column-end:5;
+          grid-row-start: 5;
+          grid-row-end: 6;
+     }
+}
+@media only screen and (min-device-width: 575px)
+{
+     .dice-roll__allPlays--title, .dice-roll__stats--title
+     {
+          color: #13232f;
+          font-size: 1.5rem;
+          line-height: 3rem;
+          vertical-align: middle;
+          font-weight: bolder;
+          cursor: pointer;
+          /* Movemnt */
+          transition-property: position;
+          transition-duration: .5s;
+     }
+}
+@media only screen and (max-device-width: 574px)
+{
+     .dice-roll__allPlays--title, .dice-roll__stats--title
+     {
+          color: #13232f;
+          font-size: 1rem;
+          line-height: 1.25rem;
+          vertical-align: middle;
+          font-weight: bolder;
+          cursor: pointer;
+          /* Movemnt */
+          transition-property: position;
+          transition-duration: .5s;
+     }
 }
 
-.dice-roll__allPlays--title, .dice-roll__stats--title
-{
-     color: #13232f;
-     font-size: 1.5rem;
-     line-height: 3rem;
-     vertical-align: middle;
-     font-weight: bolder;
-     cursor: pointer;
-     /* Movemnt */
-     transition-property: position;
-     transition-duration: .5s;
-}
 #refreshHistory, #deleteHistory, #refreshStats, #biggestWinnerRefresh, #biggestLoserRefresh
 {
      padding-left: 5px;
@@ -55,22 +98,43 @@
      transform: translateY(0px);
      color: #80bff2;
 }
-
-.dice-roll__allPlays--list, .dice-roll__stats--list
+@media only screen and (min-device-width: 575px)
 {
-     width: 90%;
-     background-color: #4d8cbf;
-     height: 80%;
-     display: inline-block;
-     border-radius: 5px;
+     .dice-roll__allPlays--list, .dice-roll__stats--list
+     {
+          width: 90%;
+          background-color: #4d8cbf;
+          height: 80%;
+          display: inline-block;
+          border-radius: 5px;
 
-     -moz-box-shadow:    inset 0 0 1px #13232f;
-     -webkit-box-shadow: inset 0 0 1px #13232f;
-     box-shadow:         inset 0 0 1px #13232f;
+          -moz-box-shadow:    inset 0 0 1px #13232f;
+          -webkit-box-shadow: inset 0 0 1px #13232f;
+          box-shadow:         inset 0 0 1px #13232f;
 
-     padding: .75rem;
-     overflow-y: auto;
+          padding: .75rem;
+          overflow-y: auto;
+     }
 }
+@media only screen and (max-device-width: 574px)
+{
+     .dice-roll__allPlays--list, .dice-roll__stats--list
+     {
+          width: 90%;
+          background-color: #4d8cbf;
+          height: 80%;
+          display: inline-block;
+          border-radius: 5px;
+
+          -moz-box-shadow:    inset 0 0 1px #13232f;
+          -webkit-box-shadow: inset 0 0 1px #13232f;
+          box-shadow:         inset 0 0 1px #13232f;
+
+          padding: .75rem;
+          overflow-y: auto;
+     }
+}
+
 /* Player Game Table */
 #playerGameTable, #gameStatsTable, #gameStatsTable__titleRow
 {
