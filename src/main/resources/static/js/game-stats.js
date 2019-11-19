@@ -85,8 +85,6 @@ function addToStatsTable ( PlayersList )
           for ( var i in PlayersList )
           {
 
-               console.log (i);
-
                tableLength = table.rows.length;
                row = table.insertRow(tableLength);
                if (i == userId)

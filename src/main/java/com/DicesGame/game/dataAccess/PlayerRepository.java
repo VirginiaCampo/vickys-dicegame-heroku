@@ -1,10 +1,10 @@
 package com.DicesGame.game.dataAccess;
 
+import com.DicesGame.game.config.JdbcDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import com.DicesGame.game.model.Player;
-import com.DicesGame.game.config.JdbcDataSource;
 
 import java.sql.Types;
 import java.time.LocalDate;
@@ -19,8 +19,9 @@ import java.util.logging.Logger;
 public class PlayerRepository
 {
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    JdbcTemplate jdbcTemplate;
     private static final Logger LOGGER = Logger.getLogger( PlayerRepository.class.getName() );
+
 
     public PlayerRepository()
     {
@@ -32,7 +33,6 @@ public class PlayerRepository
         {
             LOGGER.log(Level.FINE, "Error in DB connection", e.getCause());
         }
-
     }
     public static String generateRandomId ()
     {
@@ -49,8 +49,13 @@ public class PlayerRepository
         try
         {
             int row = jdbcTemplate.update(insertSql, params, types);
-
             return playerid;
+        }
+        catch (NullPointerException e )
+        {
+            System.out.println( "Null Pointer error " );
+            System.out.println( e.getMessage());
+            return "";
         }
         catch (DataAccessException e)
         {
@@ -101,7 +106,15 @@ public class PlayerRepository
             ).forEach(player -> players.add(player));
             LOGGER.log(Level.FINE, "getAllPlayers()", players);
             return (players);
-        } catch (DataAccessException e)
+        }
+        catch (NullPointerException e)
+        {
+            //Null player is ok
+            List<Player> players = new ArrayList<>();
+            players = null;
+            return (players);
+        }
+        catch (DataAccessException e)
         {
             throw (new Exception( e.getMessage() ));
         }
@@ -109,43 +122,70 @@ public class PlayerRepository
 
     public List<Player> findByName ( String playerName )
     {
-        List<Player> players = new ArrayList<>();
-        jdbcTemplate.query(
-                "SELECT * FROM players WHERE name = ?", new Object[] { playerName },
-                (resultSet, rowNum) -> new Player(resultSet.getString("playerId"), resultSet.getString("name"), resultSet.getString("date"))
-        ).forEach(player -> players.add(player));
-        return (players);
+        try {
+            List<Player> players = new ArrayList<>();
+            jdbcTemplate.query(
+                    "SELECT * FROM players WHERE name = ?", new Object[] { playerName },
+                    (resultSet, rowNum) -> new Player(resultSet.getString("playerId"), resultSet.getString("name"), resultSet.getString("date"))
+            ).forEach(player -> players.add(player));
+            return (players);
+        }
+        catch (NullPointerException e)
+        {
+            //Null player is ok
+            List<Player> players = new ArrayList<>();
+            return (players);
+        }
+
     }
     public Player findByPlayerid ( String playerId )
     {
+        try {
+            List<Player> players = new ArrayList<>();
+            jdbcTemplate.query(
+                    "SELECT * FROM players WHERE playerid = ?", new Object[] { playerId },
+                    (resultSet, rowNum) -> new Player(resultSet.getString("playerId"), resultSet.getString("name"), resultSet.getString("date"))
+            ).forEach(player -> players.add(player));
 
-        List<Player> players = new ArrayList<>();
-        jdbcTemplate.query(
-                "SELECT * FROM players WHERE playerid = ?", new Object[] { playerId },
-                (resultSet, rowNum) -> new Player(resultSet.getString("playerId"), resultSet.getString("name"), resultSet.getString("date"))
-        ).forEach(player -> players.add(player));
-
-        if ( players.size() > 0)
-        {
-            Iterator iter = players.iterator();
-            Player singlePlayer = (Player) iter.next();
-            return singlePlayer;
+            if ( players.size() > 0)
+            {
+                Iterator iter = players.iterator();
+                Player singlePlayer = (Player) iter.next();
+                return singlePlayer;
+            }
+            else
+            {
+                return null;
+            }
         }
-        else
+        catch (NullPointerException e)
+        {
+            return null;
+        }
+        catch (DataAccessException e)
         {
             return null;
         }
 
 
-
     }
     public List<String> findAllIds()
     {
-        List<String> playersIds = new ArrayList<>();
-        jdbcTemplate.query(
-                "SELECT playerid FROM players",
-                (resultSet, rowNum) -> playersIds.add(resultSet.getString("playerid")));
-        return (playersIds);
+        try {
+            List<String> playersIds = new ArrayList<>();
+            jdbcTemplate.query(
+                    "SELECT playerid FROM players",
+                    (resultSet, rowNum) -> playersIds.add(resultSet.getString("playerid")));
+            return (playersIds);
+        }
+        catch (NullPointerException e)
+        {
+            return ( null );
+        }
+        catch (DataAccessException e)
+        {
+            return ( null );
+        }
     }
 
 

@@ -1,11 +1,10 @@
 package com.DicesGame.game.dataAccess;
+import com.DicesGame.game.config.JdbcDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import com.DicesGame.game.model.Dice;
-import com.DicesGame.game.config.JdbcDataSource;
 import org.springframework.jdbc.core.PreparedStatementCreator;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 
@@ -18,7 +17,8 @@ import java.util.logging.Logger;
 
 public class DiceRepository
 {
-    private JdbcTemplate jdbcTemplate;
+    @Autowired
+    JdbcTemplate jdbcTemplate;
     private static final Logger LOGGER = Logger.getLogger( PlayerRepository.class.getName() );
     private List<Dice> dices;
 
@@ -27,6 +27,7 @@ public class DiceRepository
         try
         {
             jdbcTemplate = JdbcDataSource.getTemplate();
+
         }
         catch ( Exception e)
         {
@@ -72,6 +73,10 @@ public class DiceRepository
             ).forEach(dice -> dices.add(dice));
             return dices;
         }
+        catch (NullPointerException e)
+        {
+            return null;
+        }
         catch (DataAccessException e)
         {
             throw (new Exception( e.getMessage() ));
@@ -94,6 +99,10 @@ public class DiceRepository
             }
             return dices;
 
+        }
+        catch (NullPointerException e)
+        {
+            return null;
         }
         catch (DataAccessException e)
         {

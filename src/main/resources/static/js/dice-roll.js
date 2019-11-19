@@ -13,6 +13,7 @@ function doYouWantToRolldice()
           console.log ("*************************************");
           activeSection = document.getElementById('dice-roll');
           fixSizeLocation ( activeSection );
+          document.getElementById('diceRollingBTN').textContent = "Let's Roll some dices";
           document.getElementById('diceRollingBTN').addEventListener( 'click', letsRollTheDice );
 
           getPlayerRolls();
@@ -45,6 +46,7 @@ function letsRollTheDice ()
 
      createRequestObj();
      configureRequesObj( method , url , body , "getRollTheDice ( jsonObj )");
+     document.getElementById('diceRollingBTN').removeEventListener( 'click', letsRollTheDice );
      document.getElementById('diceRollingBTN').textContent = "Rolling...";
      startRollingDice();
 }
@@ -123,5 +125,6 @@ function startRollingDice()
                     alert ( message );
                }
                loopCounter = 0;
+               document.getElementById('diceRollingBTN').addEventListener( 'click', letsRollTheDice );
      }
 }

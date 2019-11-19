@@ -7,10 +7,10 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 public class JdbcDataSource
 {
 
-    private static final String driverClassName = "com.mysql.cj.jdbc.Driver";
-    private static final String url = "jdbc:mysql://67.20.76.208:3306/db_dicegame?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-    private static final String dbUsername = "paulacam_TVBZrny";
-    private static final String dbPassword = "y3N=i*BDw1yJ~7S";
+    private static final String driverClassName = "org.h2.Driver";
+    private static final String url = "jdbc:h2:mem:db;DB_CLOSE_DELAY=-1";
+    private static final String dbUsername = "sa";
+    private static final String dbPassword = "sa";
     private static JdbcTemplate template;
 
     private DataSource dataSource;

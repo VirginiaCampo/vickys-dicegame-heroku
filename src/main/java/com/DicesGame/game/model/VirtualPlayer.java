@@ -50,7 +50,7 @@ public class VirtualPlayer implements Runnable
 
         try {
             long start = System.currentTimeMillis();
-            Thread.sleep(2000);
+            Thread.sleep(5000);
             System.out.println(player.getName() + " Sleep time in ms = "+(System.currentTimeMillis()-start));
         } catch (InterruptedException e)
         {
@@ -106,7 +106,7 @@ public class VirtualPlayer implements Runnable
             }
             if ( states[stateId - 1] != "Deleting" ) {
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(7500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

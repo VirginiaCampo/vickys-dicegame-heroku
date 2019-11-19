@@ -135,9 +135,16 @@ function deleteUserReturn( JsonReturn )
      var message = JsonReturn["Message"]["Message"];
      if ( type == "ERROR")
      {
-          console.log ("File: User.js");
-          console.log ("Error 139 - " + message );
-          alert (message);
+        console.log ("File: User.js");
+        console.log ("Error 139 - " + message );
+
+        sessionStorage.clear();
+        userId = "";
+        userName = "";
+        swapRegisterItem();
+        stopRolling ();
+        removeGamesFromTable();
+
      }
      else if ( type == "SUCCESS")
      {
